@@ -26,7 +26,7 @@
           -configuration_directory $(find cartographer_ros)/configuration_files
           -configuration_basename backpack_3d.lua"
       output="screen">
-    <remap from="points2_1" to="horizontal_laser_3d" />
-    <remap from="points2_2" to="vertical_laser_3d" />
+    <remap from="points2" to="velodyne_points" />
   </node>
+ <node pkg="tf" type="static_transform_publisher" name="laser_to_base_footprint" args="0.07 0.0 0.0 0.0 0.0 0.0  /base_link /velodyne 80" />
 </launch>
