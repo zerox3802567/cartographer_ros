@@ -14,7 +14,7 @@
   limitations under the License.
 -->
 
-<robot name="stencil">
+<robot name="cartographer_backpack_3d">
   <material name="orange">
     <color rgba="1.0 0.5 0.2 1" />
   </material>
@@ -24,7 +24,7 @@
 
   <link name="imu_link">
     <visual>
-      <origin xyz="0.0 0.0 0.0" />
+      <origin xyz="2.2 0.0 0.0" />
       <geometry>
         <box size="0.06 0.04 0.02" />
       </geometry>
@@ -32,7 +32,7 @@
     </visual>
   </link>
 
-  <link name="velodyne">
+  <link name="vertical_vlp16_link">
     <visual>
       <origin xyz="0.0 0.0 0.0" />
       <geometry>
@@ -42,6 +42,7 @@
     </visual>
   </link>
 
+
   <link name="base_link" />
 
   <joint name="imu_link_joint" type="fixed">
@@ -50,10 +51,10 @@
     <origin xyz="0 0 0" rpy="0 0 0" />
   </joint>
 
-  <joint name="velodyne_joint" type="fixed">
-    <parent link="base_link" />
-    <child link="velodyne" />
-    <origin xyz="0 0 0" rpy="0 0 0" />
-  </joint>
 
+  <joint name="vertical_vlp16_link_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="vertical_vlp16_link" />
+    <origin xyz="0.0 0.0 0.0" rpy="3.14 0.0 0.0" />
+  </joint>
 </robot>
